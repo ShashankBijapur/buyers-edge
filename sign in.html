@@ -19,13 +19,13 @@
         padding: 10px 10px;
         text-align: center;
       }
-      .container>div>input{
+      .container>div>form>input{
         width:80%;
         margin-top: 10px;
         height: 50px;
         font-size: 40px;
       }
-      .container>div>a>input{
+      .container>div>form>a>input{
         width:80%;
         margin-top: 10px;
         height: 50px;
@@ -81,13 +81,36 @@
       <div>
         <h1>Signup Form</h1>
         <!-- Create the Signup form here  -->
-        <input type="text" placeholder="Name"><br>
-        <input type="email" placeholder="Email Address"><br>
-        <input type="text" placeholder="Country"><br>
-        <input type="number" placeholder="Phone"><br>
-        <input type="password" placeholder="Password"><br>
-      <a href="login.html"><input type="submit" value="Create Account"></a> 
+        <form>     
+          <input type="text" placeholder="Name" id="name"><br>
+          <input type="email" placeholder="Email Address" id="email"><br>
+          <input type="text" placeholder="Country" ><br>
+          <input type="number" placeholder="Phone" id="number"><br>
+          <input type="password" placeholder="Password" id="pass"><br>
+         <input type="submit" value="Create Account" > 
+        </form>
+        <a href="login.html"><button>login</button></a>
     </div>
     </div>
   </body>
 </html>
+<Script>
+   let data=[];
+  let form= document.querySelector("form");
+  form.addEventListener("submit",myfun);
+    function myfun(event){
+        let obj={
+          name:form.name.value,
+          email:form.email.value, 
+          number:form.number.value,
+          pass:form.pass.value
+        }
+        if(obj.name==""&&obj.email==""&& obj.pass==""){
+          alert("Please fill the form");
+        }else{
+          data.push(obj)
+        localStorage.setItem("account-data",JSON.stringify(data));
+        }
+       
+    }
+</Script>
