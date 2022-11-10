@@ -19,7 +19,7 @@
         padding: 10px 10px;
         text-align: center;
       }
-      .container>div>input{
+      .container>div>form>input{
         width:80%;
         margin-top: 10px;
         height: 50px;
@@ -76,11 +76,36 @@
       <div>
         <h1>Login Form</h1>
         <!-- Create the Signup form here  -->
-        <input type="email" placeholder="Email Address"><br>
-        <input type="number" placeholder="Phone"><br>
-        <input type="password" placeholder="Password"><br>
-        <input type="submit" value="Log In">
+        <form> 
+          <input type="email" placeholder="Email Address" id="email"><br>
+          <input type="number" placeholder="Phone" id="number"><br>
+          <input type="password" placeholder="Password" id="pass"><br>
+          <input type="submit" value="Log In">
+        </form>
+       
     </div>
     </div>
   </body>
 </html>
+<script>
+  let form= document.querySelector("form");
+ form.addEventListener("submit",myfun);
+    data=JSON.parse(localStorage.getItem("account-data")) ;
+    function myfun(event){
+      let arr=[];
+      event.preventDefault();
+        let obj={
+          email:form.email.value, 
+          number:form.number.value,
+          pass:form.pass.value
+        }
+        arr.push(obj); 
+       for(i=0;i<data.length;i++){
+        if(data[i].email==arr[i].email && data[i].pass==arr[i].pass){
+          alert("Sign in Successful")
+        }else{
+          alert("Wrong Credentials")
+        }
+       }
+      }
+</script>

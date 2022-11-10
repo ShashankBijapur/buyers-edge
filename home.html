@@ -6,6 +6,10 @@
     <link rel="stylesheet" href="home.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+      
+         
+    </style>
 </head>
 <body>
     <!-- nav bar -->
@@ -55,7 +59,7 @@
     <div id="top">
       <img src="https://www.shop.com/feo-cdn/T/6/fBRDtYVoo.jpg" alt="">
     </div>
-    <!-- middle section -->
+    <!-- Brands section -->
     <h2>Popular Brands</h2>
     <div id="brands">
           
@@ -94,17 +98,82 @@
           
           </div>
     </div>
-    <div id="toys">
-
+    <!-- hottest toys -->
+    <h2>Hottest Toys</h2>
+    <div id="hot">
+        <div id="toys"></div>
+            <div id="toyoff"><img src="https://img.shop.com/Image/homepage/shop-gbr-102789-holiday-hot-toys-banners-600x600-img-min1666631558062.jpg"></div>
     </div>
-    <div id="prod">
 
+    <!-- Gift ideas -->
+    <div id="ideas">
+      <div>
+        <a href="electronic-gift.html"><img src="https://img.shop.com/Image/240000/243400/243406/products/1947692115.jpg?plain&size=400x400" alt=""> </a>
+      </div>
+      <div>
+        <a href="gift-under25.html"><img src="https://img.shop.com/Image/240000/243300/243380/products/1869987733.jpg?plain&size=300x300" alt=""></a>
+      </div>
+      <div>
+        <a href="gift-under50.html"><img src="https://img.shop.com/Image/260000/266700/266794/products/1920614672.jpg?plain&size=300x300" alt=""></a>
+      </div>
+      <div>
+        <a href="gift-under100.html"><img src="https://img.shop.com/Image/240000/243300/243380/products/1942133519.jpg?plain&size=1600x1600" alt=""></a>
+      </div>
     </div>
+    <!-- products section -->
+    <div id="prod"></div>
+
+    <div id="disc"></div>
+    <!-- Cloths -->
+    <div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <!-- beauty products -->
     <div id="beauty">
+    <div id="beutyoff"></div>
+    <div id="beautyprod">
 
+    </div>
     </div>
 </body>
 </html>
 <script>
+ let bag=[];
+    async function get(){
+      try{
+        let proData= await fetch("https://636c9655ab4814f2b2686a70.mockapi.io/gifts")
+        .then((res)=>res.json())
+        .then((result)=>result)
+            bag=proData
+          display(proData);
+      }catch(error){
+           console.log(error);
+      }
+    }
+    get()
+    function display(data){
+      document.querySelector("#toys").innerHTML="";
+       data.forEach((element,index) => {
+        let div=document.createElement("div");
 
+        let img=document.createElement("img");
+        img.setAttribute("src",element.avatar);
+
+        let name=document.createElement("p");
+        name.innerText=element.title;
+
+        let cost=document.createElement("h4");
+        cost.innerText="$"+element.price;
+
+        let btn=document.createElement("button");
+        btn.innerText="Add to Cart";
+    
+        div.append(img,name,cost,btn);
+        document.querySelector("#toys").append(div);
+       });
+      
+    }
 </script>
