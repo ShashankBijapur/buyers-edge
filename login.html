@@ -3,31 +3,6 @@
 <html>
   <head>
     <title>Create Form</title>
-    <style>
-      /* Write all necessery css here  */
-      .container{
-       display: flex;
-       margin: auto;
-       justify-content: center;
-       justify-content: space-evenly ;
-       margin-top: 50px;
-      }
-      .container>div{
-        width: 400px;
-        height: 500px;
-        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-        padding: 10px 10px;
-        text-align: center;
-      }
-      .container>div>form>input{
-        width:80%;
-        margin-top: 10px;
-        height: 50px;
-        font-size: 40px;
-      }
-    
-
-    </style>
   </head>
   <body>
     <div id="nav">
@@ -44,16 +19,13 @@
        </div>
       <div id="search">
        <select id="filter">
-           <option value="All Departments">All Departments</option>
-           <option value="Beauty">Beauty</option>
-           <option value="Camera">Camera"</option>
-           <option value="Clothes">Clothes</option>
-           <option value="Computer">Computer</option>
-           <option value="Electronis">Electronis</option>
-           <option value="Jewelry">Jewelry</option>
-          
+        <option value="All Departments">All Departments</option>
+        <option value="Beauty">Beauty</option>
+        <option value="gifts">gifts"</option>
+        <option value="products">products</option>
+        <option value="skin">skin</option>
        </select>
-       <input type="search" placeholder="Search BUYER'S EDGE.COM...">
+       <input type="search" placeholder="Search BUYER'S EDGE.COM..." id="gift">
        <button><img src="https://img.shop.com/Image/resources/images/icon-search-24px.svg"></button>
        
        <div id="cont">
@@ -73,8 +45,9 @@
        </div>
     </div>
     <div class="container">
+      <h2>Login Form</h2>
       <div>
-        <h1>Login Form</h1>
+       
         <!-- Create the Signup form here  -->
         <form> 
           <input type="email" placeholder="Email Address" id="email"><br>
