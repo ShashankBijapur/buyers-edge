@@ -35,6 +35,9 @@ function display4(data){
 
     let btn=document.createElement("button");
     btn.innerText="Add to Cart";
+    btn.addEventListener("click",function(){
+      addcart(element);
+    })
 
     div.append(img,name,cost,btn);
     document.querySelector("#toys").append(div);
@@ -72,7 +75,9 @@ let bag=[];
 
         let btn=document.createElement("button");
         btn.innerText="Add to Cart";
-    
+        btn.addEventListener("click",function(){
+          addcart(element);
+        })
         div.append(img,name,cost,btn);
         document.querySelector("#toys").append(div);
        });
@@ -108,6 +113,9 @@ let bag=[];
 
         let btn=document.createElement("button");
         btn.innerText="Add to Cart";
+        btn.addEventListener("click",function(){
+          addcart(element);
+        })
     
         div.append(img,name,cost,btn);
         document.querySelector("#prod").append(div);
@@ -144,6 +152,9 @@ let bag=[];
 
         let btn=document.createElement("button");
         btn.innerText="Add to Cart";
+        btn.addEventListener("click",function(){
+          addcart(element);
+        })
     
         div.append(img,name,cost,btn);
         document.querySelector("#beauty").append(div);
@@ -180,6 +191,9 @@ let bag=[];
 
         let btn=document.createElement("button");
         btn.innerText="Add to Cart";
+        btn.addEventListener("click",function(){
+          addcart(element);
+        })
     
         div.append(img,name,cost,btn);
         document.querySelector("#skin").append(div);
@@ -216,6 +230,9 @@ let bag=[];
 
         let btn=document.createElement("button");
         btn.innerText="Add to Cart";
+        btn.addEventListener("click",function(){
+          addcart(element);
+        })
     
         div.append(img,name,cost,btn);
         document.querySelector("#elec").append(div);
@@ -251,6 +268,9 @@ let bag=[];
 
         let btn=document.createElement("button");
         btn.innerText="Add to Cart";
+        btn.addEventListener("click",function(){
+          addcart(element);
+        })
     
         div.append(img,name,cost,btn);
         document.querySelector("#und25").append(div);
@@ -260,7 +280,7 @@ let bag=[];
     let bag7=[];
     async function get7(){
       try{
-        let data= await fetch("https://636e61b1182793016f3f3c40.mockapi.io/new")
+        let data= await fetch("https://636e61b1182793016f3f3c40.mockapi.io/new1")
         .then((res)=>res.json())
         .then((result)=>result)
             bag7=data
@@ -286,6 +306,9 @@ let bag=[];
 
         let btn=document.createElement("button");
         btn.innerText="Add to Cart";
+        btn.addEventListener("click",function(){
+          addcart(element);
+        })
     
         div.append(img,name,cost,btn);
         document.querySelector("#und50").append(div);
@@ -296,7 +319,7 @@ let bag=[];
     let bag8=[];
     async function get8(){
       try{
-        let data= await fetch("https://636e61b1182793016f3f3c40.mockapi.io/new")
+        let data= await fetch("https://636e61b1182793016f3f3c40.mockapi.io/new2")
         .then((res)=>res.json())
         .then((result)=>result)
             bag8=data
@@ -307,7 +330,7 @@ let bag=[];
     }
     get8()
     function display8(data){
-      document.querySelector("#und25").innerHTML="";
+      document.querySelector("#und100").innerHTML="";
        data.forEach((element,index) => {
         let div=document.createElement("div");
 
@@ -322,8 +345,23 @@ let bag=[];
 
         let btn=document.createElement("button");
         btn.innerText="Add to Cart";
+        btn.addEventListener("click",function(){
+          addcart(element);
+        })
     
         div.append(img,name,cost,btn);
-        document.querySelector("#und25").append(div);
+        document.querySelector("#und100").append(div);
        });
     }
+
+    // add to cart//
+    function addcart(element){
+      let ls_data=JSON.parse(localStorage.getItem("cart"))||[];
+      ls_data.push(element);
+      if(ls_data.brand==undefined){
+        localStorage.setItem("cart",JSON.stringify(ls_data));
+      }else if(ls_data.brand!==undefined){
+        alert("Product Already in Cart");
+      }
+     
+     }

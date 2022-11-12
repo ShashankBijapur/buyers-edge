@@ -46,5 +46,61 @@
            </div> 
        </div>
     </div>
+    <div id="top">
+        <img src="https://img.shop.com/Image/homepage/stockingstuffers-hero1664399775255.jpg" alt="">
+      </div>
+      <div id="elec"></div>
+    <!-- add cart -->
+    <div id="cart"></div>
 </body>
 </html>
+<script>
+     let ls_data=JSON.parse(localStorage.getItem("cart"));
+
+
+ display(ls_data);
+ function display(data){
+   document.querySelector("#cart").innerHTML="";
+    data.forEach((element,index) => {
+        let div=document.createElement("div");
+
+        let img=document.createElement("img");
+        img.setAttribute("src",element.avatar);
+
+        let name=document.createElement("p");
+        name.innerText=element.title;
+
+        let cost=document.createElement("h4");
+        cost.innerText="$"+element.price;
+       
+        let order=document.createElement("button");
+        order.innerText="Order"
+        order.addEventListener("click",function(){
+          addorder(element);
+        })
+
+      let rmv=document.createElement("button");
+      rmv.innerText="Remove"
+      rmv.addEventListener("click",function(){
+        data.splice(index,1);
+        localStorage.setItem("cart",JSON.stringify(data));
+        display(data);
+      })
+     div.append(img,name,cost,order,rmv)
+     document.querySelector("#cart").append(div)
+    });
+
+
+    function addorder(element){
+      let ls_data=JSON.parse(localStorage.getItem("order"))||[];
+      ls_data.push(element);
+      if(ls_data.brand==undefined){
+        localStorage.setItem("order",JSON.stringify(ls_data));
+      }else if(ls_data.brand!==undefined){
+        alert("Product Already in Cart");
+      }
+     
+     }
+ }
+</script>
+</script>

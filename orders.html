@@ -46,5 +46,56 @@
            </div> 
        </div>
     </div>
+    <div id="top">
+        <img src="https://img.shop.com/Image/homepage/giftsforfamily-hero1664399961627.jpg" alt="">
+    </div>
+    <!-- append order -->
+    <div id="order"></div>
 </body>
 </html>
+<script>
+    let ls_data=JSON.parse(localStorage.getItem("order"));
+
+
+display(ls_data);
+function display(data){
+  document.querySelector("#order").innerHTML="";
+   data.forEach((element,index) => {
+       let div=document.createElement("div");
+
+       let img=document.createElement("img");
+       img.setAttribute("src",element.avatar);
+
+       let name=document.createElement("p");
+       name.innerText=element.title;
+
+       let cost=document.createElement("h4");
+       cost.innerText="$"+element.price;
+      
+       let addbtn=document.createElement("button");
+        addbtn.innerText="+";
+        addbtn.addEventListener("click",function(){
+          span.innerText=+(span.innerText)+1;
+        })
+
+        let span=document.createElement("span");
+        span.innerText="1";
+
+        let rmvbtn=document.createElement("button");
+        rmvbtn.innerText="-";
+        rmvbtn.addEventListener("click",function(){
+          span.innerText=+(span.innerText)-1;
+    },0)
+     let rmv=document.createElement("button");
+     rmv.innerText="Remove"
+     rmv.addEventListener("click",function(){
+       data.splice(index,1);
+       localStorage.setItem("order",JSON.stringify(data));
+       display(data);
+     })
+    div.append(img,name,cost,addbtn,span,rmvbtn,rmv)
+    document.querySelector("#order").append(div)
+   });
+
+}
+</script>
