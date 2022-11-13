@@ -1,5 +1,6 @@
 
 // <!-- searched items -->
+let bag4=[];
 let btn=document.querySelector("#btn");
 btn.addEventListener("click",function(event){
    event.preventDefault();
@@ -9,10 +10,10 @@ btn.addEventListener("click",function(event){
       let proData= await fetch("https://636dd4b3b567eed48aca5f96.mockapi.io/"+gift)
       .then((res)=>res.json())
       .then((result)=>result)
-          proData;
+          bag4=proData;
         display4(proData);
     }catch(error){
-         console.log(error);
+        alert(error);
     }
   }
   get4();
@@ -365,3 +366,50 @@ let bag=[];
       }
      
      }
+
+     filter=document.querySelector("#filter");
+     filter.addEventListener("change",function(){
+
+      let val=document.querySelector("#filter").value;
+      let filterval=bag.filter(function(ele){
+       if(ele.price<=val){
+        return ele;
+       }if(val=="All price"){
+         return bag
+      }
+      })
+      display(filterval);
+      let val1=document.querySelector("#filter").value;
+      let filterval1=bag1.filter(function(ele){
+       if(ele.price<=val1){
+        return ele;
+       }
+       if(val1=="All price"){
+        return bag1
+       }
+      })
+      display1(filterval1);
+
+      let val2=document.querySelector("#filter").value;
+      let filterval2=bag2.filter(function(ele){
+       if(ele.price<=val2){
+        return ele;
+       }if(val2=="All price"){
+        return bag2
+      }
+      })
+      display2(filterval2);
+
+      let val3=document.querySelector("#filter").value;
+      let filterval3=bag3.filter(function(ele){
+       if(ele.price<=val3){
+        return ele;
+       }if(val3=="All price"){
+        return bag3
+      }
+      })
+      display3(filterval3);
+       
+      
+     });
+    
