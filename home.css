@@ -121,11 +121,22 @@ height: 100%;
    height: 100%;
 }
 #toys{
-   display: flex;
+   display: grid;
+   grid-template-columns: repeat(3,1fr);
    align-items: center;
    padding: 0px 50px;
    gap: 20px;
    margin-bottom: 10px;
+}
+@media all and (min-width:766px) and (max-width:1024px){
+   #toys{
+       grid-template-columns: repeat(2,1fr);
+   }
+}
+@media all and (min-width:100px) and (max-width:765px){
+   #toys{
+   grid-template-columns: repeat(2,1fr);
+   }
 }
 #toys>div{
    width: 300px;
@@ -147,10 +158,20 @@ height: 100%;
 }
 /* gift ideas */
 #ideas{
-   display: flex;
-   height: 380px;
+   display: grid;
+   grid-template-columns: repeat(4,1fr);
    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
  }
+ @media all and (min-width:766px) and (max-width:1024px){
+   #ideas{
+       grid-template-columns: repeat(3,1fr);
+   }
+}
+@media all and (min-width:100px) and (max-width:765px){
+   #ideas{
+   grid-template-columns: repeat(2,1fr);
+   }
+}
  #ideas>div{
    margin: auto;
    height: 200px;
@@ -179,6 +200,16 @@ height: 100%;
    align-items: center;
    padding: 0px 50px;
    gap: 20px;
+}
+@media all and (min-width:766px) and (max-width:1024px){
+   #prod,#skin,#beauty,#cart,#order{
+       grid-template-columns: repeat(3,1fr);
+   }
+}
+@media all and (min-width:100px) and (max-width:765px){
+   #prod,#skin,#beauty,#cart,#order{
+   grid-template-columns: repeat(2,1fr);
+   }
 }
 #prod>div,#skin>div,#beauty>div,#cart>div,#order>div{
    width: 300px;
@@ -209,9 +240,21 @@ height: 100%;
  /* cloths */
  #cloth{
    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-   height: 300px;
-   display: flex;
+   display: grid;
+   grid-template-columns: repeat(6,1fr);
+   margin-bottom: 60px;
+   text-align: center;
  }
+ @media all and (min-width:766px) and (max-width:1024px){
+   #cloth{
+       grid-template-columns: repeat(3,1fr);
+   }
+}
+@media all and (min-width:100px) and (max-width:765px){
+   #cloth{
+   grid-template-columns: repeat(2,1fr);
+   }
+}
  #cloth>div{
    margin: auto;
    height: 100px;
@@ -222,7 +265,7 @@ height: 100%;
    padding: 50px 50px;
  }
  #cloth>div>img{
-   width: 100px;
+   width: 100%;
    height: 100%;
    border-radius: 100%;
  }
@@ -233,13 +276,25 @@ height: 100%;
  }
 
 #disc1{
-   display: flex;
+   display: grid;
+   grid-template-columns: repeat(4,1fr);
    margin-top: 20px;
+   width: 1000px;
    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
  }
+ @media all and (min-width:766px) and (max-width:1024px){
+   #disc1{
+       grid-template-columns: repeat(3,1fr);
+   }
+}
+@media all and (min-width:100px) and (max-width:765px){
+   #disc1{
+   grid-template-columns: repeat(2,1fr);
+   }
+}
  #disc1>div{
-   width: 1000px;
-   height: 250px;
+   width: 100%;
+   height: 100%;
    margin: auto;
    margin-left: 40px;
  }
@@ -310,6 +365,17 @@ height: 100%;
       padding: 0px 50px;
       gap: 20px;
    }
+   @media all and (min-width:766px) and (max-width:1024px){
+     #elec,#und25,#und50,#und100{
+          grid-template-columns: repeat(3,1fr);
+      }
+   }
+   @media all and (min-width:100px) and (max-width:765px){
+      #elec,#und25,#und50,#und100{
+      grid-template-columns: repeat(2,1fr);
+      }
+   }
+
    #elec>div, #und25>div, #und50>div, #und100>div{
       width: 300px;
       height: 200px;
